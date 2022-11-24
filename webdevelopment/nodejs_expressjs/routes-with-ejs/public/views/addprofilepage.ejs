@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>add profile</title>
+    <style>
+      form {
+        border: 2px solid rgb(216, 216, 216);
+        width: 50%;
+        font-size: 24px;
+        text-align: center;
+        padding: 40px 0 40px 0;
+        border-radius: 30px;
+      }
+      form > div {
+        margin-bottom: 20px;
+      }
+      #wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      input {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <form action="/profiles/api" method="post" enctype="multipart/form-data">
+        <%= typeof msg != "undefined" ? msg : "" %>
+
+        <div><label for="fname">Firstname:</label></div>
+        <div><input type="text" name="firstname" required /></div>
+        <div><label for="lname">Lastname:</label></div>
+        <div><input type="text" name="lastname" required /></div>
+        <div><label for="">Age</label></div>
+        <div><input type="text" name="age" required /></div>
+        <div><label for="">Job Role</label></div>
+        <div><input type="text" name="role" required /></div>
+
+        <% if (typeof roleinputerror != "undefined"){ %>
+        <h3><%= roleinputerror %></h3>
+        <% } %>
+
+        <div><label for="">Job Info</label></div>
+        <div>
+          <textarea
+            name="jobinfo"
+            id=""
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+        </div>
+
+        <% if (typeof educationalbginputerror != "undefined"){ %>
+        <h3><%= educationalbginputerror %></h3>
+        <% } %>
+
+        <div><label for="">Educational Background</label></div>
+        <div>
+          <textarea
+            name="educationalbg"
+            id=""
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+        </div>
+
+        <% if (typeof jobinfoinputerror != "undefined"){ %>
+        <h3><%= jobinfoinputerror %></h3>
+        <% } %>
+
+        <div><label for="">Hobbies</label></div>
+        <div>
+          <textarea
+            maxlength="50"
+            name="hobbies"
+            id=""
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+        </div>
+
+        <% if (typeof hobbiesinputerror != "undefined"){ %>
+        <h3><%= hobbiesinputerror %></h3>
+        <% } %>
+
+        <div><label for="">Favorite Quote</label></div>
+        <div>
+          <textarea
+            maxlength="50"
+            name="favoritequote"
+            id=""
+            cols="30"
+            rows="10"
+            required
+          ></textarea>
+        </div>
+
+        <% if (typeof favoritequoteinputerror != "undefined"){ %>
+        <h3><%= favoritequoteinputerror %></h3>
+        <% } %>
+
+        <div><input type="file" name="profpic" required /></div>
+        <div><button type="submit">Submit</button></div>
+      </form>
+    </div>
+  </body>
+</html>
